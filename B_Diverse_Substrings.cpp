@@ -1,4 +1,9 @@
-
+/**===========================================================================================
+                                B H Yean Hasan (NoYoN)
+                    Patuakhali Science and Technology University
+                     Faculty of Computer Science and Engineering
+                            https://bhyeanhasan.github.io
+/*===========================================================================================**/
 #include<bits/stdc++.h>
 #define pi acos(-1)
 #define even(i) (!(i & 1))
@@ -39,15 +44,29 @@ int main() {
     NoYoN_Variables;
     //freopen("input.txt", "r", stdin);
     //freopen("output.txt", "w", stdout);
-    //tc
+    tc
     {
         /*===========================================================================================*/
 
-        cin>>n;
-        ll arr[n] = {0};
+        cin>>n>>s;
 
-        inputarr(arr);
-        show(arr);
+        sum=0;
+        for(ll i=0;i<n;i++)
+        {
+            ll arr[10]={0}, dis=0,maxf=0;
+
+            for(j=i;j<=i+99 && j<n;j++)
+            {
+                arr[s[j]-'0']++;
+                if(arr[s[j]-'0']==1)
+                    dis++;
+                maxf = max(maxf,arr[s[j]-'0']);
+                if(maxf<=dis)
+                sum++;
+            }
+        }
+        cout<<sum<<endl;
+        
         /*===========================================================================================*/
     }
 

@@ -1,4 +1,9 @@
-
+/**===========================================================================================
+                                B H Yean Hasan (NoYoN)
+                    Patuakhali Science and Technology University
+                     Faculty of Computer Science and Engineering
+                            https://bhyeanhasan.github.io
+/*===========================================================================================**/
 #include<bits/stdc++.h>
 #define pi acos(-1)
 #define even(i) (!(i & 1))
@@ -17,8 +22,6 @@
 #define print(x) cout<<x<<endl
 #define srt(a) sort(a.begin(),a.end())
 #define fr(i, n) for(ll i=0;i<n;i++)
-#define inputarr(arr) for(auto& it:arr) {cin >> it;}
-#define show(arr) for(auto& it:arr) {cout << it << ' ';}
 #define yes cout<<"YES"<<endl
 #define no cout<<"NO"<<endl
 #define ln cout<<endl
@@ -26,28 +29,38 @@
 #define NoYoN_Variables ll n,m,a,b,c,x,y,z,i,j,k,sum=0,t=0,count=0,flag=0; string s,s1,s2,s3; bool is = false; double Sum=0;
 #define By_NoYoN ios_base::sync_with_stdio(false); cin.tie(NULL);cout.tie(0);
 
-
 using namespace std;
 ll input() {
     ll x;
     cin >> x;
     return x;
 }
+// void show(ll ar[], ll first, ll last) {for (ll i = first; i < last; i++) {cout << ar[i] << " ";}cout << endl;}
+// void show(vector<ll> ar, ll first, ll last) {for (ll i = first; i < last; i++) {cout << ar[i] << " ";} cout << endl;}
 
 int main() {
     By_NoYoN;
     NoYoN_Variables;
     //freopen("input.txt", "r", stdin);
     //freopen("output.txt", "w", stdout);
-    //tc
+    tc
     {
         /*===========================================================================================*/
-
         cin>>n;
-        ll arr[n] = {0};
 
-        inputarr(arr);
-        show(arr);
+
+        for(int i=1;i<=n/2;i++)
+        {
+            cout<<n/2+i<<" "<<i<<" ";
+        }
+        if(n%2)
+        {
+            cout<<n;
+        }
+        
+        cout<<endl;
+
+
         /*===========================================================================================*/
     }
 
