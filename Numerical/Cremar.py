@@ -1,16 +1,16 @@
 import numpy as np
 
-n = int(input('No of Unknown Variable: '))
-arr = np.zeros((n, n + 1))
+# n = int(input('No of Unknown Variable: '))
+# arr = np.zeros((n, n + 1))
+#
+# for i in range(n):
+#     row = list(map(int, input('Enter Equation ' + str(i + 1) + ' : ').split()))
+#     arr[i] = row
 
-for i in range(n):
-    row = list(map(int, input('Enter Equation ' + str(i + 1) + ' : ').split()))
-    arr[i] = row
-
-# arr = np.array([[3, -0.1, -0.2, 7.85],
-#                 [0.1, 7, -0.3, -19.3],
-#                 [0.3, -0.2, 10, 71.4]])
-# n = 3
+arr = np.array([[3, -0.1, -0.2, 7.85],
+                [0.1, 7, -0.3, -19.3],
+                [0.3, -0.2, 10, 71.4]])
+n = 3
 
 
 Matrix = arr[0:n, 0:n]
