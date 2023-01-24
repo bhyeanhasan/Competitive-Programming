@@ -1,44 +1,24 @@
-def calculateB(x, y, n):
-    # sum of array x
-    sx = sum(x)
-    # sum of array y
-    sy = sum(y)
+x = [95, 85, 80, 70, 60]
+y = [90, 80, 70, 65, 60]
 
-    # for sum of product of x and y
-    sxsy = 0
+sx = 0
+sy = 0
 
-    # sum of square of x
-    sx2 = 0
+ssx = 0
+sxy = 0
+n = len(x)
 
-    for i in range(n):
-        sxsy += x[i] * y[i]
-        sx2 += x[i] * x[i]
-    b = (n * sxsy - sx * sy) / (n * sx2 - sx * sx)
-    return b
+for i in range(n):
+    sx += x[i]
+    sy += y[i]
+    ssx += x[i] ** 2
+    sxy += x[i] * y[i]
 
+meanx = sx / n
+meany = sy / n
 
-# Function to find the
-# least regression line
-def leastRegLine(X, Y, n):
-    # Finding b
-    b = calculateB(X, Y, n)
-    meanX = int(sum(X) / n)
-    meanY = int(sum(Y) / n)
+b = (n * sxy - (sx * sy)) / (n * ssx - sx ** 2)
 
-    # Calculating a
-    a = meanY - b * meanX
+a = meany - b * meanx
 
-    # Printing regression line
-    print("Regression line:")
-    print("Y = ", '%.3f' % a, " + ", '%.3f' % b, "*X", sep="")
-
-
-# Driver code
-
-# Statistical data
-X = [95, 85, 80, 70, 60]
-Y = [90, 80, 70, 65, 60]
-n = len(X)
-leastRegLine(X, Y, n)
-
-# This code is contributed by avanitrachhadiya2155
+print("%0.03f" % a)
