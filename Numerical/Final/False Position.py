@@ -2,7 +2,7 @@ MAX_ITER = 1000000
 
 
 def func(x):
-    return (x * x * x - x * x + 2)
+    return x * x * x - x * x + 2
 
 
 def FalsePosition(a, b):
@@ -18,7 +18,6 @@ def FalsePosition(a, b):
 
         if func(c) == 0:
             break
-
         elif func(c) * func(a) < 0:
             b = c
         else:

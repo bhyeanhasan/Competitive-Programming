@@ -26,5 +26,5 @@ def trapezoidal(ll, ul, n):
 
 lower_limit = 0  # Lower limit
 upper_limit = 1  # Upper limit
-n = 6  # Number of interval
+n = 12  # Number of interval
 print("%.6f" % trapezoidal(lower_limit, upper_limit, n))

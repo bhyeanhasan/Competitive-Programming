@@ -24,7 +24,7 @@ def simpsons_1By3(ll, ul, n):
             res += 2 * fx[i]
         else:
             res += 4 * fx[i]
-        i += 1
+
     res = res * (h / 3)
     return res
 

@@ -1,47 +1,62 @@
+import scipy.linalg
 import numpy as np
-import sys
 
-a = np.array([[6, 3, 4, 2], [3, 6, 5, -3], [4, 5, 10, 6]])
-print(a)
-n = 3
-# x = np.zeros(n)
-# n = int(input('Enter number of unknowns: '))
-# a = np.zeros((n, n + 1))
-x = np.zeros(n)
-# # input fron keybord
-# print('Enter Augmented Matrix Coefficients:')
-# for i in range(n):
-#     for j in range(n + 1):
-#         a[i][j] = float(input('a[' + str(i) + '][' + str(j) + ']='))
 
-# Applying Gauss Elimination
-for i in range(n):  # row wise work
-    if a[i][i] == 0.0:
-        sys.exit('Divide by zero detected!')
+def cramer(mat, constant):
+    D = np.linalg.det(mat)
 
-    for j in range(i + 1, n):
-        ratio = a[j][i] / a[i][i]
+    mat1 = np.array([constant, mat[:, 1], mat[:, 2]])
+    mat2 = np.array([mat[:, 0], constant, mat[:, 2]])
+    mat3 = np.array([mat[:, 0], mat[:, 1], constant])
 
-        for k in range(n + 1):
-            a[j][k] = a[j][k] - ratio * a[i][k]
+    D1 = np.linalg.det(mat1)
+    D2 = np.linalg.det(mat2)
+    D3 = np.linalg.det(mat3)
 
-# Back Substitution
-x[n - 1] = a[n - 1][n] / a[n - 1][n - 1]
+    X1 = D1 / D
+    X2 = D2 / D
+    X3 = D3 / D
 
-for i in range(n - 2, -1, -1):
-    x[i] = a[i][n]
+    return X1, X2, X3
 
-    for j in range(i + 1, n):
-        x[i] = x[i] - a[i][j] * x[j]
 
-    x[i] = x[i] / a[i][i]
+# A = np.array([[3, -.1, -.2],
+#               [.1, 7, -.3],
+#               [.3, -.2, 10]])
+#
+# b = np.array([7.85, -19.3, 71.4])
 
-# Displaying solution
-print('\nRequired solution is: ')
-for i in range(n):
-    print('X%d = %0.2f' % (i, x[i]), end='\t')
+A = np.array([[10, 40, 70],
+              [20, 50, 80],
+              [70, 80, 80]])
 
-# 3
-# 6 3 4 2
-# 3 6 5 -3
-# 4 5 10 6
+b = np.array([300, 360, 390])
+
+# A = np.array([ [1,1,-1],
+#                 [2,3,5],
+#                 [3,2,-3] ])
+
+# b = np.array([2,-3,6])
+
+'''
+3
+10 40 70 300
+20 50 80 360
+30 60 80 390
+Ans = 1, 2, 3
+
+'''
+
+P, L, U = scipy.linalg.lu(A)
+
+print("L:")
+print(L)
+
+print("U:")
+print(U)
+
+Y1, Y2, Y3 = cramer(L, b)
+y = np.array([Y1, Y2, Y3])
+X1, X2, X3 = cramer(U, y)
+
+print(X1, X2, X3)
