@@ -18,8 +18,7 @@ b = np.array([2, -3, 6])
 
 p, l, u = scipy.linalg.lu(a)
 
-ans = cremar(l,b)
-ans = cremar(u,ans)
+ans = cremar(l, b)
+ans = cremar(u, ans)
 
 print(ans)
-

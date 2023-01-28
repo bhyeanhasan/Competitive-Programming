@@ -1,7 +1,5 @@
-import numpy as np
-import math
 def func(x, y):
-    return math.exp(x/2)*math.sin(5*x)
+    return x-y
 
 
 def euler(x, y, h, x_val):
@@ -17,9 +15,9 @@ def euler(x, y, h, x_val):
 
 
 x0 = 0
-y0 = 0
-h = 0.1
-x = 1
+y0 = 1
+h = 0.2
+x = 2
 
 euler(x0, y0, h, x)
 

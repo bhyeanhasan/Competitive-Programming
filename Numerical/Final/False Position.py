@@ -2,7 +2,7 @@ MAX_ITER = 1000000
 
 
 def func(x):
-    return x * x * x - x * x + 2
+    return x ** 3 - 0.165 * x ** 2 + 3.993 * (1 / 10000)
 
 
 def FalsePosition(a, b):
@@ -17,6 +17,7 @@ def FalsePosition(a, b):
         c = (a * func(b) - b * func(a)) / (func(b) - func(a))
 
         if func(c) == 0:
+            print(c)
             break
         elif func(c) * func(a) < 0:
             b = c
@@ -25,6 +26,6 @@ def FalsePosition(a, b):
     print("The value of root is : ", '%.4f' % c)
 
 
-a = -200
-b = 300
+a = 0
+b = 0.11
 FalsePosition(a, b)
